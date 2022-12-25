@@ -24,6 +24,7 @@ pipeline{
 		stage("testing"){
 			steps{
 				echo "========executing testing========"
+                sh "mvn test"
 			}
 			post{
 				always{
@@ -40,6 +41,7 @@ pipeline{
 		stage("packaging"){
 			steps{
 				echo "========executing packaging========"
+                sh "mvn package"
 			}
 			post{
 				always{
