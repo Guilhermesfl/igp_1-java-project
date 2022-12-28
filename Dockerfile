@@ -4,4 +4,4 @@ COPY . /usr/app
 
 WORKDIR /usr/app
 
-CMD [ "bash" ]
+CMD [ "bash", "-c", "mvn tomcat7:run-war" ]

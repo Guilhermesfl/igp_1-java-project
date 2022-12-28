@@ -45,13 +45,13 @@ pipeline{
 			}
 			post{
 				always{
-						echo "========always========"
+					echo "========always========"
 				}
 				success{
-						echo "========packaging executed successfully========"
+					echo "========packaging executed successfully========"
 				}
 				failure{
-						echo "========packaging execution failed========"
+					echo "========packaging execution failed========"
 				}
 			}
 		}
