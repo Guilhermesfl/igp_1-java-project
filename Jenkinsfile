@@ -42,6 +42,7 @@ pipeline{
 			steps{
 				echo "========executing packaging========"
                 sh "mvn package"
+				sh "docker build -t abc-technologies-retail ."
 			}
 			post{
 				always{
