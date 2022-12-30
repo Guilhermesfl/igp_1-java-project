@@ -57,6 +57,25 @@ pipeline{
 				}
 			}
 		}
+		stage("deploying"){
+			steps{
+				echo "========executing deploying========"
+				sh "git clone https://github.com/Guilhermesfl/igp_1-operations.git"
+				sh "cd igp_1-operations/ansible/"
+				sh "ansible-playbook -i inventory abc-technologies.yaml"
+			}
+			post{
+				always{
+					echo "========always========"
+				}
+				success{
+					echo "========deploying executed successfully========"
+				}
+				failure{
+					echo "========deploying execution failed========"
+				}
+			}
+		}
 	}
 	post{
 		always{
