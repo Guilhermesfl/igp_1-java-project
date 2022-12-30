@@ -61,11 +61,12 @@ pipeline{
 			steps{
 				echo "========executing deploying========"
 				sh "git clone https://github.com/Guilhermesfl/igp_1-operations.git"
-				sh "cd igp_1-operations/ansible/ && ansible-playbook -i inventory abc-technologies.yaml"
+				sh "ansible-playbook -i igp_1-operations/ansible/inventory igp_1-operations/ansible/abc-technologies.yaml"
 			}
 			post{
 				always{
 					echo "========always========"
+					sh "rm -rf igp_1-operations"
 				}
 				success{
 					echo "========deploying executed successfully========"
